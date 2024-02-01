@@ -10,7 +10,7 @@ read port
 echo "Enter the last port number you want to scan: "
 read lport
 
-nmap -sT $IPadd-$add2 -p $port-$lport >/dev/null -oG SScan
+nmap -sT -Pn $IPadd-$add2 -p $port-$lport >/dev/null -oG SScan
 
 cat SScan | grep open > Stext 
 
