@@ -1,0 +1,16 @@
+#! /bin/bash
+#This script is designed to find hosts with common port that are installed on their system
+
+echo "Enter the IP address you wish to scan: (eg. 192.128.1.0 or 10.0.1.0) "
+read IPadd
+
+echo "Enter the last octet of the IP address: (eg. 255)" 
+read add2
+echo  "Enter the port number you want to scan: "
+read port
+
+nmap -sT $IPadd-$add2 -p $port >/dev/null -oG SScan
+
+cat SScan | grep open > Stext 
+
+cat Stext 
