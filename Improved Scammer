@@ -3,13 +3,14 @@
 
 echo "Enter the IP address you wish to scan: (eg. 192.128.1.0 or 10.0.1.0) "
 read IPadd
-
 echo "Enter the last octet of the IP address: (eg. 255)" 
 read add2
-echo  "Enter the port number you want to scan: "
+echo  "Enter the first port number you want to scan: "
 read port
+echo "Enter the last port number you want to scan: "
+read lport
 
-nmap -sT $IPadd-$add2 -p $port >/dev/null -oG SScan
+nmap -sT $IPadd-$add2 -p $port-$lport >/dev/null -oG SScan
 
 cat SScan | grep open > Stext 
 
